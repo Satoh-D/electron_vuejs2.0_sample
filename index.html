@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Electron Read Us</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Electron READUS app</h1>
+      <!-- /.page-header --></div>
+
+      <div id="app">
+
+        <div class="row">
+          <div class="col-md-4">
+            <input type="search" placeholder="Search..." class="form-control" v-model="searchReadme"></input>
+            <div class="list-group">
+              <a class="list-group-item" 
+                v-for="file in filteredFilename"
+                v-bind:class="currentFile == file ? 'active' : ''"
+                v-on:click="getFile(file, $event)">{{ file.moduleName }}</a>
+            </div>
+          <!-- /.col-md-4 --></div>
+
+          <div class="col-md-8">
+            <!-- display selected README -->
+            <div v-html="fileText"></div>
+          <!-- /.col-md-8 --></div>
+
+        <!-- /.row --></div>
+
+      <!-- /#app --></div>
+
+    <!-- /.container --></div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>  
